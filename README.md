@@ -113,3 +113,23 @@ The split should occur where the application is about to be rendered, typically 
 #### What happens if you add white space to the HTML during server-side rendering?
 
 Adding white space can change the hash of the initial render, which might cause hydration mismatches between the server-rendered content and the client-side React application.
+
+#### What is the key difference between Server-Side Rendering (SSR) and React Server Components (RSCs)?
+
+In SSR, the initial page load is rendered on the server, and then client-side rendering takes over. With RSCs, there is an ongoing relationship between the server and the app, where components continue to render and interact on the server throughout the application lifecycle.
+
+#### What is a unique advantage of React Server Components regarding code execution?
+
+With React Server Components, the client never receives the server-side code. This allows developers to perform operations like direct SQL queries within React components, since all processing happens on the server.
+
+#### How do React Server Components potentially impact JavaScript bundle size?
+
+React Server Components can significantly reduce JavaScript bundle size because server components do not exist in the client bundle. Only a stub is sent to the client indicating how to request the component's rendering from the server
+
+#### What is a key contraint when working with React Server Components?
+
+React Server Components cannot use client-side state management features like useState, as these components only render on the server and cannot track client-side state.
+
+#### What is the current primary framework for implementing React Server Components?
+
+Next.js is currently the primary framework fully implementing React Server Components, with a default approach of treating every component as a server component unless explicitly opted into client-side rendering.
